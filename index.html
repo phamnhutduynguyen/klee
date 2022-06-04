@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Klee UwU</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body id="klee-video" data-vide-bg="media/klee-eat">
+    <audio id="klee-audio" controls loop hidden >
+        <source src="media/klee.mp3" type="audio/mpeg" />
+    </audio>
+    <img id="playAudio" onclick="playAudio()" src="media/pause.png" title="Music here" />
+    
+    <script>
+        var scrWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        var scrHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        var audio = document.getElementById("klee-audio");
+        var playButton = document.getElementById("playAudio");
+        
+        //playButton.setAttribute("style", "margin-left: " + scrWidth * 90 / 100 + "px; margin-top: " + scrHeight * 60 / 100 + "px;");
+        /*
+        var video = document.getElementById("klee-video");
+        video.removeAttribute("data-vide-bg");
+        video.setAttribute("data-vide-bg", "media/klee-run");
+        setInterval( function() {
+            video.removeAttribute("data-vide-bg");
+            video.setAttribute("data-vide-bg", "media/klee-eat");
+        }, 5000);
+        
+        function changes() {
+            var video = document.getElementById("klee-video");
+            var currentDate = new Date();
+            var hour = currentDate.getMinutes();
+            console.log(hour);
+            if(hour == 0 || hour == 3 || hour == 6 || hour == 9 || hour == 12 || hour == 15 || hour == 18 || hour == 21) {
+                video.removeAttribute("data-vide-bg");
+                video.setAttribute("data-vide-bg", "media/klee-sleep.mp4");
+            } else if(hour == 1 || hour == 4 || hour == 7 || hour == 10 || hour == 13 || hour == 16 || hour == 19 || hour == 22) {
+                video.removeAttribute("data-vide-bg");
+                video.setAttribute("data-vide-bg", "media/klee-eat.mp4");
+            } else if(hour == 2 || hour == 5 || hour == 8 || hour == 11 || hour == 14 || hour == 17 || hour == 20 || hour == 23) {
+                video.removeAttribute("data-vide-bg");
+                video.setAttribute("data-vide-bg", "media/klee-run.mp4");
+            }
+        }
+        */
+        function playAudio() {
+            audio.play();
+            playButton.removeAttribute("onclick");
+            playButton.removeAttribute("src");
+            playButton.setAttribute("onclick", "pauseAudio()");
+            playButton.setAttribute("src", "media/play.png");
+        }
+        function pauseAudio() {
+            audio.pause();
+            playButton.removeAttribute("onclick");
+            playButton.removeAttribute("src");
+            playButton.setAttribute("onclick", "playAudio()");
+            playButton.setAttribute("src", "media/pause.png");
+        }
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.vide.js"></script>
+</body>
+</html>
